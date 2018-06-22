@@ -89,6 +89,9 @@ brew install \
     mysql \
     mongodb \
     solr
+
+brew cask install \
+    insomnia
 # }}}
 
 # Java {{{
