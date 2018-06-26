@@ -89,9 +89,6 @@ brew install \
     mysql \
     mongodb \
     solr
-
-brew cask install \
-    insomnia
 # }}}
 
 # Java {{{
@@ -115,6 +112,25 @@ brew cask install \
     font/font-fira-code \
     font/font-fira-mono \
     font/font-fira-sans
+# }}}
+
+# Casks {{{
+brew cask install \
+    insomnia \
+    ubersicht \
+    slack \
+    spectacle \
+    iterm2 \
+    google-chrome \
+    postman \
+    insomniax \
+    gas-mask \
+    mysqlworkbench \
+    resilio-sync \
+    dash \
+    visual-studio-code \
+    tunnelblick \
+    virtualbox virtualbox-extension-pack
 # }}}
 # }}}
 
@@ -184,88 +200,13 @@ curl -L 'https://download.mozilla.org/?product=firefox-latest-ssl&os=osx&lang=en
     ./install_app.sh "${DOWNLOAD_DIR}/firefox-stable.dmg"
 # }}}
 
-# Slack {{{
-curl -L 'https://slack.com/ssb/download-osx' -o "${DOWNLOAD_DIR}/slack.dmg" && \
-    ./install_app.sh "${DOWNLOAD_DIR}/slack.dmg"
-# }}}
-
-# Visual Studio Code {{{
-curl -L 'https://go.microsoft.com/fwlink/?LinkID=620882' -o "${DOWNLOAD_DIR}/vscode.zip" && \
-    ${UNZIP} "${DOWNLOAD_DIR}/vscode.zip" -d "${DOWNLOAD_DIR}" && \
-    mv "${DOWNLOAD_DIR}/Visual Studio Code.app" "${APPLICATIONS}"
-# }}}
-
-# Spectacle {{{
-curl -L 'https://s3.amazonaws.com/spectacle/downloads/Spectacle+1.2.zip' -o "${DOWNLOAD_DIR}/spectacle.zip" && \
-    ${UNZIP} "${DOWNLOAD_DIR}/spectacle.zip" -d "${DOWNLOAD_DIR}" && \
-    mv "${DOWNLOAD_DIR}/Spectacle.app" "${APPLICATIONS}"
-# }}}
-
-# Google Chrome {{{
-curl -L 'https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg' -o "${DOWNLOAD_DIR}/googlechrome.dmg" && \
-    ./install_app.sh "${DOWNLOAD_DIR}/googlechrome.dmg"
-# }}}
-
-# iTerm2 {{{
-curl -L 'https://iterm2.com/downloads/stable/iTerm2-3_1_5.zip' -o "${DOWNLOAD_DIR}/iTerm2.zip" && \
-    ${UNZIP} "${DOWNLOAD_DIR}/iTerm2.zip" -d "${DOWNLOAD_DIR}" && \
-    mv "${DOWNLOAD_DIR}/iTerm.app" "${APPLICATIONS}"
-# }}}
-
-# Postman {{{
-curl -L 'https://dl.pstmn.io/download/latest/osx' -o "${DOWNLOAD_DIR}/postman.zip" && \
-    ${UNZIP} "${DOWNLOAD_DIR}/postman.zip" -d "${DOWNLOAD_DIR}" && \
-    mv "${DOWNLOAD_DIR}/Postman.app" "${APPLICATIONS}"
-# }}}
-
-# GasMask {{{
-curl -L 'http://gmask.clockwise.ee/files/gas_mask_0.8.5.zip' -o "${DOWNLOAD_DIR}/gasmask.zip" && \
-    ${UNZIP} "${DOWNLOAD_DIR}/gasmask.zip" -d "${DOWNLOAD_DIR}" && \
-    mv "${DOWNLOAD_DIR}/Gas Mask.app" "${APPLICATIONS}"
-# }}}
-
-# MySQL Workbench {{{
-curl -L 'https://dev.mysql.com/get/Downloads/MySQLGUITools/mysql-workbench-community-6.3.10-macos-x86_64.dmg' -o "${DOWNLOAD_DIR}/mysql-workbench.dmg" && \
-    ./install_app.sh "${DOWNLOAD_DIR}/Mysql-workbench.dmg"
-# }}}
-
-# Resilio Sync {{{
-curl -L 'https://download-cdn.resilio.com/stable/osx/Resilio-Sync.dmg' -o "${DOWNLOAD_DIR}/resilio-sync.dmg" && \
-    ./install_app.sh "${DOWNLOAD_DIR}/resilio-sync.dmg"
-# }}}
-
-# Virtual Box {{{
-curl -L 'https://download.virtualbox.org/virtualbox/5.2.6/VirtualBox-5.2.6-120293-OSX.dmg' -o "${DOWNLOAD_DIR}/virtualbox.dmg" && \
-    curl -L 'https://download.virtualbox.org/virtualbox/5.2.6/Oracle_VM_VirtualBox_Extension_Pack-5.2.6-120293.vbox-extpack' -o "${DOWNLOAD_DIR}/Oracle_VM_VirtualBox_Extension_Pack-5.2.6-120293.vbox-extpack" && \
-    ./install_pkg.sh "${DOWNLOAD_DIR}/virtualbox.dmg" && \
-    VBoxManage extpack install --replace "${DOWNLOAD_DIR}/Oracle_VM_VirtualBox_Extension_Pack-5.2.6-120293.vbox-extpack" && \
-    VBoxManage extpack cleanup
-# }}}
-
-# Dash {{{
-curl -L 'https://singapore.kapeli.com/downloads/v4/Dash.zip' -o "${DOWNLOAD_DIR}/dash.zip" && \
-    ${UNZIP} "${DOWNLOAD_DIR}/dash.zip" -d "${DOWNLOAD_DIR}" && \
-    mv "${DOWNLOAD_DIR}/Dash.app" "${APPLICATIONS}"
-# }}}
-
 # JetBrains {{{
 curl -L 'https://download.jetbrains.com/idea/ideaIU-2017.3.3.dmg' -o "${DOWNLOAD_DIR}/intellij-idea.dmg"
 curl -L 'https://download.jetbrains.com/webide/PhpStorm-2017.3.3.dmg' -o "${DOWNLOAD_DIR}/phpstorm.dmg"
 # }}}
 
-# Tunnelblick {{{
-curl -L 'https://tunnelblick.net/release/Latest_Tunnelblick_Stable.dmg' -o "${DOWNLOAD_DIR}/tunnelblick.dmg" && \
-    ./install_app.sh "${DOWNLOAD_DIR}/tunnelblick.dmg"
-# }}}
-
 # FortiClient SSLVPN {{{
 curl -L 'https://d3gpjj9d20n0p3.cloudfront.net/forticlient/downloads/FortiClient_5.6.1.723_macosx.dmg' -o "${DOWNLOAD_DIR}/forticlient.dmg"
-# }}}
-
-# InsomniaX {{{
-curl -L 'http://insomniax.semaja2.net/InsomniaX-2.1.8.tgz' -o "${DOWNLOAD_DIR}/insomniax.tgz" && \
-    ${UNTAR} "${DOWNLOAD_DIR}/insomniax.tgz" -C "${DOWNLOAD_DIR}" && \
-    mv InsomniaX.app "${APPLICATIONS}"
 # }}}
 # }}}
 
