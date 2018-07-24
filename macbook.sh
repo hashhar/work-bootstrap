@@ -24,7 +24,6 @@ brew install \
     shellcheck \
     hh \
     fasd \
-    telnet \
     tree \
     gnupg \
     jq \
@@ -37,7 +36,8 @@ brew install \
     tmux \
     ack \
     pigz \
-    xz
+    xz \
+    inetutils
 # }}}
 
 # MacOS specific {{{
@@ -113,8 +113,9 @@ brew cask install \
     font/font-fira-mono \
     font/font-fira-sans
 # }}}
+# }}}
 
-# Casks {{{
+# Homebrew Casks {{{
 brew cask install \
     insomnia \
     ubersicht \
@@ -130,8 +131,10 @@ brew cask install \
     dash \
     visual-studio-code \
     tunnelblick \
-    virtualbox virtualbox-extension-pack
-# }}}
+    virtualbox virtualbox-extension-pack \
+    contexts \
+    vanilla \
+    bartender
 # }}}
 
 # Postinstall steps {{{
@@ -139,6 +142,10 @@ brew cask install \
     mkdir "$HOME/.nvm" && \
     nvm install --lts && \
     npm install -g neovim
+# }}}
+
+# Rust {{{
+curl https://sh.rustup.rs -sSf | sh
 # }}}
 # }}}
 
@@ -214,19 +221,20 @@ curl -L 'https://d3gpjj9d20n0p3.cloudfront.net/forticlient/downloads/FortiClient
 mkdir "$HOME/.config/"{mpd,ncmpcpp,mpdscribble}
 cat << 'EOF' > /tmp/music.patch
 diff --git a/Formula/mpd.rb b/Formula/mpd.rb
-index c0b7e03..5046549 100644
+index b95594a..f1ac81d 100644
 --- a/Formula/mpd.rb
 +++ b/Formula/mpd.rb
-@@ -125,6 +125,7 @@ class Mpd < Formula
+@@ -127,7 +127,7 @@ class Mpd < Formula
          <array>
              <string>#{opt_bin}/mpd</string>
              <string>--no-daemon</string>
-+            <string>${HOME}/.config/mpd/mpd.conf</string>
+-            <string>#{etc}/mpd/mpd.conf</string>
++            <string>/Users/ashhar/.config/mpd/mpd.conf</string>
          </array>
          <key>RunAtLoad</key>
          <true/>
 diff --git a/Formula/mpdscribble.rb b/Formula/mpdscribble.rb
-index 7aa35c9..5f44c7c 100644
+index b01542c..34f941b 100644
 --- a/Formula/mpdscribble.rb
 +++ b/Formula/mpdscribble.rb
 @@ -41,6 +41,10 @@ class Mpdscribble < Formula
@@ -234,9 +242,9 @@ index 7aa35c9..5f44c7c 100644
              <string>#{opt_bin}/mpdscribble</string>
              <string>--no-daemon</string>
 +            <string>--log</string>
-+            <string>${HOME}/.config/mpdscribble/log</string>
++            <string>/Users/ashhar/.config/mpdscribble/log</string>
 +            <string>--conf</string>
-+            <string>${HOME}/.config/mpdscribble/mpdscribble.conf</string>
++            <string>/Users/ashhar/.config/mpdscribble/mpdscribble.conf</string>
          </array>
          <key>RunAtLoad</key>
          <true/>
